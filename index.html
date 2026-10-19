@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080a17" />
+    <meta name="description" content="一张只属于你的生日星图，收藏那些闪闪发亮的日子。" />
+    <title>给你的，一整个宇宙</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="memories.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="ambient ambient--one" aria-hidden="true"></div>
+    <div class="ambient ambient--two" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="回到首页">
+        <span class="brand__mark" aria-hidden="true">✳</span>
+        <span>HER LITTLE UNIVERSE</span>
+      </a>
+      <nav class="header-nav" aria-label="主导航">
+        <a href="#map">记忆星图</a>
+        <a href="#letter">生日信</a>
+        <span class="header-nav__status"><i></i> ARCHIVE ONLINE</span>
+      </nav>
+      <button class="menu-toggle" type="button" aria-label="打开导航" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="hero__copy">
+          <p class="eyebrow"><span class="eyebrow__line"></span> A BIRTHDAY ARCHIVE <span>NO. 01</span></p>
+          <h1 id="hero-title">给你的，<br /><em>一整个宇宙。</em></h1>
+          <p class="hero__intro">把那些闪闪发亮的日子，收进一张只属于你的星图。<br class="desktop-only" />今晚，我们从最初的那颗星开始。</p>
+          <a class="button button--primary" href="#map" id="begin-journey">
+            <span>开始这场旅行</span><span class="button__arrow" aria-hidden="true">↗</span>
+          </a>
+          <div class="hero__footnote"><span>SCROLL TO EXPLORE</span><span class="hero__footnote-rule"></span><span>01 — 04</span></div>
+        </div>
+
+        <div class="hero-art" aria-label="一颗被星环环绕的发光星球">
+          <div class="hero-art__coordinate">35°41' N &nbsp; 139°41' E</div>
+          <div class="hero-art__orbit hero-art__orbit--outer"></div>
+          <div class="hero-art__orbit hero-art__orbit--inner"></div>
+          <div class="hero-art__planet"><span class="hero-art__planet-glow"></span><span class="hero-art__planet-ring"></span></div>
+          <span class="hero-art__star hero-art__star--one">✦</span>
+          <span class="hero-art__star hero-art__star--two">✧</span>
+          <span class="hero-art__star hero-art__star--three">✦</span>
+          <span class="hero-art__dot hero-art__dot--one"></span>
+          <span class="hero-art__dot hero-art__dot--two"></span>
+          <div class="hero-art__label hero-art__label--top"><span>PERSONAL MEMORY SYSTEM</span><b>ACTIVE</b></div>
+          <div class="hero-art__label hero-art__label--bottom"><span>THE MOST IMPORTANT STAR</span><b>YOU</b></div>
+          <div class="hero-art__crosshair hero-art__crosshair--one">+</div>
+          <div class="hero-art__crosshair hero-art__crosshair--two">+</div>
+        </div>
+        <div class="hero__vertical-note" aria-hidden="true">A SMALL UNIVERSE MADE OF BIG MEMORIES</div>
+      </section>
+
+      <section class="intro-strip" aria-label="网站介绍">
+        <span class="intro-strip__symbol">✳</span>
+        <p>有些日子会过去，<em>但不会熄灭。</em></p>
+        <span class="intro-strip__caption">A MAP OF ALL THE LITTLE THINGS</span>
+      </section>
+
+      <section class="map-section section-shell" id="map" aria-labelledby="map-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span class="eyebrow__line"></span> YOUR CONSTELLATION</p>
+            <h2 id="map-title">记忆，正在<span>连成星图。</span></h2>
+          </div>
+          <p class="section-heading__aside">沿着星点慢慢走。<br />每一颗星，都藏着一段属于你的故事。</p>
+        </div>
+
+        <div class="constellation" aria-label="记忆章节筛选">
+          <div class="constellation__line" aria-hidden="true"></div>
+          <button class="chapter chapter--active" type="button" data-filter="all" aria-pressed="true">
+            <span class="chapter__star">✦</span><span class="chapter__name">全部记忆</span><span class="chapter__index">00</span>
+          </button>
+          <button class="chapter" type="button" data-filter="childhood" aria-pressed="false">
+            <span class="chapter__star">✧</span><span class="chapter__name">最初的星球</span><span class="chapter__index">01</span>
+          </button>
+          <button class="chapter" type="button" data-filter="family" aria-pressed="false">
+            <span class="chapter__star">✧</span><span class="chapter__name">我们的轨道</span><span class="chapter__index">02</span>
+          </button>
+          <button class="chapter" type="button" data-filter="adventure" aria-pressed="false">
+            <span class="chapter__star">✧</span><span class="chapter__name">去往远方</span><span class="chapter__index">03</span>
+          </button>
+          <button class="chapter" type="button" data-filter="today" aria-pressed="false">
+            <span class="chapter__star">✧</span><span class="chapter__name">此刻的光</span><span class="chapter__index">04</span>
+          </button>
+        </div>
+
+        <div class="gallery-heading">
+          <div><span class="gallery-heading__index">MEMORY LOG</span><span class="gallery-heading__rule"></span><span class="gallery-heading__count" id="memory-count">08 SIGNALS</span></div>
+          <p>点击任意一颗星，打开一段记忆 <span aria-hidden="true">↘</span></p>
+        </div>
+        <div class="memory-grid" id="memory-grid" aria-live="polite"></div>
+        <p class="gallery-note"><span>✳</span> 有些星星还在等一张照片，和一句只有你们懂的话。</p>
+      </section>
+
+      <section class="letter-section" id="letter" aria-labelledby="letter-title">
+        <div class="letter-section__stars" aria-hidden="true">✦ &nbsp; · &nbsp; ✧ &nbsp; · &nbsp; ✦</div>
+        <p class="eyebrow"><span class="eyebrow__line"></span> A MESSAGE FROM HOME</p>
+        <h2 id="letter-title">今天，所有星光<br /><em>都为你亮着。</em></h2>
+        <p class="letter-section__intro">最后一站，有一封写给你的信。</p>
+        <button class="button button--light" id="open-letter" type="button"><span>拆开这封信</span><span class="button__arrow" aria-hidden="true">↗</span></button>
+        <div class="letter-section__orbit" aria-hidden="true"><span></span><i></i></div>
+        <div class="letter-section__coordinates" aria-hidden="true">HOME IS A COORDINATE<br />YOU CAN ALWAYS FIND</div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand brand--footer" href="#home"><span class="brand__mark" aria-hidden="true">✳</span><span>HER LITTLE UNIVERSE</span></a>
+      <p>由家人制作，献给宇宙里最特别的你。</p>
+      <a class="back-to-top" href="#home">回到星图顶部 ↑</a>
+      <span class="site-footer__year">MADE WITH LOVE · <span id="year"></span></span>
+    </footer>
+
+    <dialog class="memory-dialog" id="memory-dialog" aria-labelledby="dialog-title">
+      <button class="dialog-close" type="button" aria-label="关闭">×</button>
+      <div class="dialog-media" id="dialog-media"></div>
+      <div class="dialog-copy">
+        <p class="eyebrow" id="dialog-kicker">MEMORY SIGNAL</p>
+        <h2 id="dialog-title"></h2>
+        <p id="dialog-caption"></p>
+        <span class="dialog-date" id="dialog-date"></span>
+      </div>
+    </dialog>
+
+    <dialog class="letter-dialog" id="letter-dialog" aria-labelledby="letter-dialog-title">
+      <button class="dialog-close" type="button" aria-label="关闭">×</button>
+      <div class="letter-paper">
+        <p class="eyebrow">TO OUR FAVORITE PERSON</p>
+        <h2 id="letter-dialog-title">亲爱的妹妹，</h2>
+        <p>生日快乐。</p>
+        <p>谢谢你来到我们的宇宙里，让普通的日子也有了闪光。愿新的一岁，有喜欢的事、有想见的人，也有勇气走向自己的星球。</p>
+        <p>不管航线通向哪里，家一直是你的坐标。</p>
+        <p class="letter-signoff">永远为你亮着，<br />爱你的家人 <span>✦</span></p>
+      </div>
+      <div class="confetti-layer" aria-hidden="true"></div>
+    </dialog>
+  </body>
+</html>
