@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="正在维护更新中。">
+  <title>任乔洛 | 网站维护更新中</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --sky-50: #f0f9ff;
+      --sky-100: #e0f2fe;
+      --sky-200: #bae6fd;
+      --sky-300: #7dd3fc;
+      --sky-500: #0ea5e9;
+      --sky-700: #0369a1;
+      --ink: #12324a;
+      --muted: #5c7890;
+      --panel: rgba(255, 255, 255, 0.74);
+      --line: rgba(14, 165, 233, 0.18);
+      --shadow: 0 28px 80px rgba(14, 116, 144, 0.14);
+      --sans: "Avenir Next", "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --serif: "Iowan Old Style", "Palatino Linotype", "Songti SC", serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--sans);
+      background:
+        linear-gradient(120deg, rgba(224, 242, 254, 0.92), rgba(240, 249, 255, 0.64) 46%, rgba(186, 230, 253, 0.76)),
+        var(--sky-50);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          transparent 0,
+          transparent 28px,
+          rgba(3, 105, 161, 0.05) 29px,
+          transparent 30px
+        );
+      mask-image: linear-gradient(to bottom, black, transparent 82%);
+    }
+
+    .wave {
+      position: fixed;
+      left: -12vw;
+      right: -12vw;
+      bottom: -18vh;
+      z-index: -2;
+      height: 46vh;
+      pointer-events: none;
+      background:
+        radial-gradient(55% 80% at 50% 0%, rgba(125, 211, 252, 0.54), transparent 70%),
+        linear-gradient(90deg, rgba(14, 165, 233, 0.16), rgba(186, 230, 253, 0.42), rgba(14, 165, 233, 0.16));
+      border-radius: 50% 50% 0 0;
+      animation: tide 9s ease-in-out infinite;
+    }
+
+    .wave.two {
+      bottom: -24vh;
+      opacity: 0.55;
+      animation-duration: 13s;
+      animation-delay: -4s;
+    }
+
+    .shell {
+      width: min(1060px, calc(100% - 36px));
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      margin: 0 auto;
+      padding: 28px 0;
+    }
+
+    header,
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+    }
+
+    .brand-copy {
+      display: grid;
+      gap: 1px;
+    }
+
+    .mark {
+      width: 38px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 50%, #fff 0 18%, transparent 19%),
+        conic-gradient(from 110deg, var(--sky-700), var(--sky-300), #fff, var(--sky-500), var(--sky-700));
+      box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.46);
+    }
+
+    .tag {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0 13px;
+      color: var(--sky-700);
+      background: rgba(255, 255, 255, 0.58);
+      font-size: 13px;
+    }
+
+    .tag::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sky-500);
+      box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.36);
+      animation: pulse 2.4s ease-out infinite;
+    }
+
+    main {
+      display: grid;
+      align-items: center;
+      padding: clamp(44px, 8vw, 86px) 0;
+    }
+
+    .maintenance {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+      gap: clamp(28px, 6vw, 76px);
+      align-items: center;
+    }
+
+    h1 {
+      max-width: 9em;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(36px, 5.4vw, 68px);
+      line-height: 1.03;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .en-small {
+      display: block;
+      margin-top: 6px;
+      color: rgba(92, 120, 144, 0.82);
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.45;
+      letter-spacing: 0.02em;
+    }
+
+    .brand .en-small {
+      margin-top: 0;
+      color: var(--sky-700);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 .en-small {
+      margin-top: 10px;
+      font-size: clamp(12px, 2vw, 15px);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .lead {
+      max-width: 620px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 21px);
+      line-height: 1.8;
+    }
+
+    .lead .en-small {
+      margin-top: 8px;
+      font-size: 14px;
+      letter-spacing: 0.01em;
+    }
+
+    .status-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .status-pill {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0 14px;
+      color: var(--sky-700);
+      background: rgba(255, 255, 255, 0.64);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .panel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 24px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 22%, rgba(125, 211, 252, 0.22), transparent 12rem),
+        radial-gradient(circle at 86% 12%, rgba(14, 165, 233, 0.12), transparent 10rem);
+    }
+
+    .panel > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .progress-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .progress-label strong {
+      color: var(--ink);
+      font-size: 18px;
+    }
+
+    .progress-title {
+      display: grid;
+      gap: 2px;
+    }
+
+    .progress-title .en-small {
+      margin-top: 0;
+      color: var(--sky-700);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .progress-track {
+      position: relative;
+      height: 12px;
+      overflow: hidden;
+      border-radius: 999px;
+      margin: 18px 0 24px;
+      background: rgba(186, 230, 253, 0.62);
+    }
+
+    .progress-fill {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 90%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--sky-500), var(--sky-300));
+      animation: breathe 3s ease-in-out infinite;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .check-text {
+      display: grid;
+      gap: 1px;
+    }
+
+    .check-text .en-small {
+      margin-top: 0;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .check {
+      width: 22px;
+      height: 22px;
+      display: inline-grid;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--sky-500);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .check.pending {
+      color: var(--sky-700);
+      border: 2px solid rgba(14, 165, 233, 0.62);
+      background: rgba(255, 255, 255, 0.8);
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer a {
+      color: var(--sky-700);
+      font-weight: 700;
+    }
+
+    @keyframes pulse {
+      70% { box-shadow: 0 0 0 13px rgba(14, 165, 233, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
+    }
+
+    @keyframes tide {
+      0%, 100% { transform: translate3d(0, 0, 0) scaleX(1); }
+      50% { transform: translate3d(4vw, -3vh, 0) scaleX(1.04); }
+    }
+
+    @keyframes breathe {
+      0%, 100% { filter: saturate(1); opacity: 0.88; }
+      50% { filter: saturate(1.25); opacity: 1; }
+    }
+
+    @media (max-width: 760px) {
+      .shell {
+        width: min(100% - 26px, 560px);
+        padding: 18px 0 22px;
+      }
+
+      header,
+      footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .maintenance {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        max-width: none;
+        font-size: clamp(32px, 10vw, 50px);
+      }
+
+      .panel {
+        border-radius: 22px;
+        padding: 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 1ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wave" aria-hidden="true"></div>
+  <div class="wave two" aria-hidden="true"></div>
+
+  <div class="shell">
+    <header>
+      <div class="brand">
+        <span class="mark" aria-hidden="true"></span>
+        <span class="brand-copy">
+          <span>任乔洛</span>
+          <span class="en-small">Ren Qiaoluo</span>
+        </span>
+      </div>
+      <span class="tag">Maintenance Mode</span>
+    </header>
+
+    <main>
+      <section class="maintenance" aria-labelledby="maintenance-title">
+        <div>
+          <h1 id="maintenance-title">网站正在维护更新<span class="en-small">Website maintenance in progress</span></h1>
+          <p class="lead">正在整理新的内容与页面。请稍后再来访问，感谢等待。<span class="en-small">We are refreshing the content and page experience. Please check back soon. Thank you for your patience.</span></p>
+
+          <div class="status-row" aria-label="维护状态">
+            <span class="status-pill">天蓝色我觉得好看</span>
+            <span class="status-pill">还有两首歌没放到资源库</span>
+            <span class="status-pill">访问开放时间：？</span>
+          </div>
+        </div>
+
+        <aside class="panel" aria-label="更新进度">
+          <div class="progress-label">
+            <strong class="progress-title">更新进度<span class="en-small">Update progress</span></strong>
+            <span>90%</span>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-fill"></div>
+          </div>
+          <ul class="checklist">
+            <li><span class="check">✓</span><span class="check-text">页面结构已整理<span class="en-small">Page structure organized</span></span></li>
+            <li><span class="check">✓</span><span class="check-text">视觉主题正在微调<span class="en-small">Visual theme is being refined</span></span></li>
+            <li><span class="check pending">•</span><span class="check-text">内容即将重新开放<span class="en-small">Content will reopen soon</span></span></li>
+          </ul>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2026 甘弦朋 All rights reserved.</span>
+      <a href="mailto:gan1020097573@gmail.com">gan1020097573@gmail.com</a>
+    </footer>
+  </div>
+</body>
+</html>
